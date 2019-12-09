@@ -21,8 +21,8 @@ func main() {
 
 	app.Commands = []cli.Command{
 		{
-			Name:   "input-score",
-			Usage:  "標準入力を受け付ける",
+			Name:   "input",
+			Usage:  "入力",
 			Action: actions.Input,
 			Flags: []cli.Flag{
 				cli.StringFlag{
@@ -32,8 +32,8 @@ func main() {
 			},
 		},
 		{
-			Name:   "sample-read",
-			Usage:  "midiを読み込む(sample)",
+			Name:   "read",
+			Usage:  "読み込み",
 			Action: actions.Read,
 			Flags: []cli.Flag{
 				cli.StringFlag{
@@ -43,8 +43,8 @@ func main() {
 			},
 		},
 		{
-			Name:   "sample-create",
-			Usage:  "midiを書き出す(sample)",
+			Name:   "create",
+			Usage:  "書き出し",
 			Action: actions.Create,
 			Flags: []cli.Flag{
 				cli.StringFlag{

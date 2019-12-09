@@ -13,7 +13,7 @@ import (
 const createFileName = "test"
 
 func Create(c *cli.Context) error {
-	file := c.String("output")
+	file := c.String("test")
 	if file == "" {
 		file = createFileName
 	}
@@ -58,7 +58,7 @@ func Create(c *cli.Context) error {
 		return err
 	}
 
-	outputMidi, err := os.Create(fmt.Sprintf("data/%s.mid", file))
+	outputMidi, err := os.Create(fmt.Sprintf("./%s.mid", file))
 	if err != nil {
 		return err
 	}

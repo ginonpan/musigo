@@ -47,6 +47,7 @@ func Input(c *cli.Context) error {
 	if err != nil {
 		return err
 	}
+
 	midi, err := smf.NewSMF(smf.Format0, *division)
 	if err != nil {
 		return err
@@ -82,15 +83,15 @@ func Input(c *cli.Context) error {
 		}
 	}
 
-	metaEventOne, err := smf.NewMetaEvent(21, smf.MetaEndOfTrack, []byte{})
+	metaEvent, err := smf.NewMetaEvent(21, smf.MetaEndOfTrack, []byte{})
 	if err != nil {
 		return err
 	}
-	if err := track.AddEvent(metaEventOne); err != nil {
+	if err := track.AddEvent(metaEvent); err != nil {
 		return err
 	}
 
-	outputMidi, err := os.Create(fmt.Sprintf("data/%s.mid", file))
+	outputMidi, err := os.Create(fmt.Sprintf("./%s.mid", file))
 	if err != nil {
 		return err
 	}

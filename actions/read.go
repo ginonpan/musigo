@@ -12,11 +12,11 @@ import (
 const readFileName = "test"
 
 func Read(c *cli.Context) error {
-	fname := c.String("file")
+	fname := c.String("test")
 	if fname == "" {
 		fname = readFileName
 	}
-	file, _ := os.Open(fmt.Sprintf("data/%s.mid", fname))
+	file, _ := os.Open(fmt.Sprintf("./%s.mid", fname))
 	defer file.Close()
 
 	midi, err := smfio.Read(bufio.NewReader(file))
