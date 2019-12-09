@@ -3,13 +3,11 @@ package actions
 import (
 	"bufio"
 	"fmt"
-	"io/ioutil"
 	"musigo/values"
 	"os"
 
 	"github.com/algoGuy/EasyMIDI/smf"
 	"github.com/algoGuy/EasyMIDI/smfio"
-	"golang.org/x/crypto/ssh/terminal"
 	cli "gopkg.in/urfave/cli.v1"
 )
 
@@ -22,22 +20,17 @@ const (
 
 // Input Keys or Get Strings convert MIDI
 func Input(c *cli.Context) error {
-	file := c.String("test")
+	var file string
+	fmt.Println("Enter the output file name")
+	fmt.Scan(&file)
 	if file == "" {
 		file = inputFileName
 	}
 
 	var str string
-	if terminal.IsTerminal(0) {
-		scanner := bufio.NewScanner(os.Stdin)
-		scanner.Scan()
-		str = scanner.Text()
-	} else {
-		stby, _ := ioutil.ReadAll(os.Stdin)
-		str = string(stby)
-	}
+	fmt.Println("Enter the music you want to play")
+	fmt.Scan(&str)
 
-	// mapping tone
 	var score []uint8
 	for _, t := range str {
 		score = append(score, values.Scale(fmt.Sprintf("%c", t)))

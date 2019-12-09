@@ -40,7 +40,7 @@ func Scale(key string) uint8 {
 		"l": HighD,
 		"p": HighDis,
 		";": HighE,
-		" ": Rest,
+		"-": Rest,
 	}
 	return list[key]
 }
