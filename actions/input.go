@@ -1,4 +1,4 @@
-package input
+package actions
 
 import (
 	"bufio"
@@ -14,17 +14,17 @@ import (
 )
 
 const (
-	onDeltaTime     = 800
-	offDeltaTime    = 80
-	ticks           = 960
-	defaultFileName = "test"
+	onDeltaTime   = 800
+	offDeltaTime  = 80
+	ticks         = 960
+	inputFileName = "test"
 )
 
 // Input Keys or Get Strings convert MIDI
 func Input(c *cli.Context) error {
 	file := c.String("test")
 	if file == "" {
-		file = defaultFileName
+		file = inputFileName
 	}
 
 	var str string

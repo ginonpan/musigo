@@ -1,7 +1,7 @@
 package main
 
 import (
-	input "musigo/actions"
+	"musigo/actions"
 	"os"
 	"time"
 
@@ -23,7 +23,7 @@ func main() {
 		{
 			Name:   "input-score",
 			Usage:  "標準入力を受け付ける",
-			Action: input.Input,
+			Action: actions.Input,
 			Flags: []cli.Flag{
 				cli.StringFlag{
 					Name:  "output, o",
@@ -34,7 +34,7 @@ func main() {
 		{
 			Name:   "sample-read",
 			Usage:  "midiを読み込む(sample)",
-			Action: read.Read,
+			Action: actions.Read,
 			Flags: []cli.Flag{
 				cli.StringFlag{
 					Name:  "file, f",
@@ -45,7 +45,7 @@ func main() {
 		{
 			Name:   "sample-create",
 			Usage:  "midiを書き出す(sample)",
-			Action: create.Create,
+			Action: actions.Create,
 			Flags: []cli.Flag{
 				cli.StringFlag{
 					Name:  "output, o",
